@@ -41,7 +41,21 @@
             <button type="submit"  class="submit-button">Đăng ký ngay</button>
         </form>
     </section>
-        <script src= "GoogleSheet.js"></script>     
+        <script>
+            const scriptURL = 'Your Google App Script URL'
+
+const form = document.forms['contact-form']
+
+form.addEventListener('submit', e => {
+  
+  e.preventDefault()
+  
+  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+  .then(response => alert("Thank you! Form is submitted" ))
+  .then(() => { window.location.reload(); })
+  .catch(error => console.error('Error!', error.message))
+})
+        </script>     
     <footer>
         <p>&copy; 2025 Hướng Dẫn Thiền Thở</p>
         <p>Liên hệ: info@thientho.vn | Hotline: 0123456789</p>
